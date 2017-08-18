@@ -1,0 +1,874 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="2.9" jmeter="3.0 r1743807">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Plan de Pruebas" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="Variables definidas por el Usuario" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="[wstourico] Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Controlador Bucle" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">30</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1467819393000</longProp>
+        <longProp name="ThreadGroup.end_time">1467819393000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="Valores por Defecto para Petición HTTP" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="Variables definidas por el Usuario" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">10.2.96.24</stringProp>
+          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/wstourico/touricoaccess</stringProp>
+          <stringProp name="HTTPSampler.concurrentPool">4</stringProp>
+        </ConfigTestElement>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="A - Avail" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;request type=&quot;ACCOMMODATIONS_AVAIL&quot; version=&quot;4.1&quot; cache=&quot;yes&quot; accessPoint=&quot;10&quot; checkLogin=&quot;false&quot; &gt;&#xd;
+	&lt;client code=&quot;EEMISO&quot; branch=&quot;4905&quot; groupCode=&quot;&quot; password=&quot;zipvhbm9rr&quot;/&gt;&#xd;
+	&lt;language code=&quot;SPA&quot;/&gt;&#xd;
+	&lt;searchCriteria&gt;&#xd;
+		${__GetSearchCriteria()}&#xd;
+		&lt;criterion code=&quot;priceType&quot; type=&quot;2&quot; value=&quot;3&quot;/&gt;&#xd;
+		&lt;criterion code=&quot;showPvp&quot; type=&quot;2&quot; value=&quot;0&quot;/&gt;&#xd;
+	&lt;/searchCriteria&gt;&#xd;
+	&lt;period start=&quot;${__GetPeriodStart(PERIODSTART)}&quot; end=&quot;${__GetPeriodEnd(${PERIODSTART})}&quot;/&gt;&#xd;
+	&lt;rooms&gt;&#xd;
+		&lt;room type=&quot;1&quot; adults=&quot;${__Random(1,4, ADULTSR1)}&quot; children=&quot;${__GetChildrenFromAdults(${ADULTSR1})}&quot;/&gt;&#xd;
+		&lt;room type=&quot;2&quot; adults=&quot;${__Random(1,4, ADULTSR2)}&quot; children=&quot;${__GetChildrenFromAdults(${ADULTSR2})}&quot;/&gt;&#xd;
+	&lt;/rooms&gt;&#xd;
+&lt;/request&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="Ver Árbol de Resultados" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>false</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <threadCounts>true</threadCounts>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="A - Avail" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;request type=&quot;ACCOMMODATIONS_AVAIL&quot; version=&quot;4.1&quot; cache=&quot;yes&quot; accessPoint=&quot;10&quot; checkLogin=&quot;false&quot; &gt;&#xd;
+	&lt;client code=&quot;EEMISO&quot; branch=&quot;4905&quot; groupCode=&quot;&quot; password=&quot;zipvhbm9rr&quot;/&gt;&#xd;
+	&lt;language code=&quot;SPA&quot;/&gt;&#xd;
+	&lt;searchCriteria&gt;&#xd;
+		&lt;criterion code=&quot;area&quot; type=&quot;0&quot; value=&quot;&quot;/&gt;&#xd;
+		&lt;criterion code=&quot;priceType&quot; type=&quot;2&quot; value=&quot;3&quot;/&gt;&#xd;
+		&lt;criterion code=&quot;showPvp&quot; type=&quot;2&quot; value=&quot;0&quot;/&gt;&#xd;
+	&lt;/searchCriteria&gt;&#xd;
+	&lt;period start=&quot;${__GetPeriodStart(PERIODSTART)}&quot; end=&quot;${__GetPeriodEnd(${PERIODSTART})}&quot;/&gt;&#xd;
+	&lt;rooms&gt;&#xd;
+		&lt;room type=&quot;1&quot; adults=&quot;${__Random(1,4, ADULTSR1)}&quot; children=&quot;${__GetChildrenFromAdults(${ADULTSR1})}&quot;/&gt;&#xd;
+		&lt;room type=&quot;2&quot; adults=&quot;${__Random(1,4, ADULTSR2)}&quot; children=&quot;${__GetChildrenFromAdults(${ADULTSR2})}&quot;/&gt;&#xd;
+	&lt;/rooms&gt;&#xd;
+&lt;/request&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="Ver Árbol de Resultados" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>false</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <threadCounts>true</threadCounts>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="A - Avail" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;request type=&quot;ACCOMMODATIONS_AVAIL&quot; version=&quot;4.1&quot; cache=&quot;yes&quot; accessPoint=&quot;10&quot; checkLogin=&quot;false&quot; &gt;&#xd;
+	&lt;client code=&quot;EEMISO&quot; branch=&quot;4905&quot; groupCode=&quot;&quot; password=&quot;zipvhbm9rr&quot;/&gt;&#xd;
+	&lt;language code=&quot;SPA&quot;/&gt;&#xd;
+	&lt;searchCriteria&gt;&#xd;
+		&lt;criterion code=&quot;accommodationCode&quot; type=&quot;0&quot; value=&quot;&quot;/&gt;&#xd;
+		&lt;criterion code=&quot;priceType&quot; type=&quot;2&quot; value=&quot;3&quot;/&gt;&#xd;
+		&lt;criterion code=&quot;showPvp&quot; type=&quot;2&quot; value=&quot;0&quot;/&gt;&#xd;
+	&lt;/searchCriteria&gt;&#xd;
+	&lt;period start=&quot;${__GetPeriodStart(PERIODSTART)}&quot; end=&quot;${__GetPeriodEnd(${PERIODSTART})}&quot;/&gt;&#xd;
+	&lt;rooms&gt;&#xd;
+		&lt;room type=&quot;1&quot; adults=&quot;${__Random(1,4, ADULTSR1)}&quot; children=&quot;${__GetChildrenFromAdults(${ADULTSR1})}&quot;/&gt;&#xd;
+		&lt;room type=&quot;2&quot; adults=&quot;${__Random(1,4, ADULTSR2)}&quot; children=&quot;${__GetChildrenFromAdults(${ADULTSR2})}&quot;/&gt;&#xd;
+	&lt;/rooms&gt;&#xd;
+&lt;/request&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="Ver Árbol de Resultados" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>false</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <threadCounts>true</threadCounts>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="B - Avail" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;request type=&quot;ACCOMMODATIONS_AVAIL&quot; version=&quot;4.1&quot; cache=&quot;yes&quot; id=&quot;BenjiTestAvail&quot; accessPoint=&quot;10&quot; checkLogin=&quot;false&quot; &gt;&#xd;
+   	&lt;client code=&quot;EEMISO&quot; branch=&quot;4905&quot; groupCode=&quot;13687&quot; password=&quot;zipvhbm9rr&quot;/&gt;&#xd;
+	&lt;language code=&quot;SPA&quot;/&gt;&#xd;
+	&lt;searchCriteria&gt;&#xd;
+		&lt;criterion code=&quot;country&quot; type=&quot;0&quot; value=&quot;ESP&quot;/&gt;&#xd;
+		&lt;!-- London --&gt;&#xd;
+		&lt;criterion code=&quot;city&quot; type=&quot;0&quot; value=&quot;62267&quot;/&gt;&#xd;
+	&lt;/searchCriteria&gt;&#xd;
+	&lt;period start=&quot;20161020&quot; end=&quot;20161026&quot;/&gt;&#xd;
+	&lt;rooms&gt;&#xd;
+		&lt;room type=&quot;1&quot; adults=&quot;2&quot; children=&quot;0&quot;/&gt;&#xd;
+	&lt;/rooms&gt;&#xd;
+&lt;/request&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="Ver Árbol de Resultados" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>false</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <threadCounts>true</threadCounts>
+              </value>
+            </objProp>
+            <stringProp name="filename">C:\Users\Innova4j\Desktop\IMPORTANTES - Alvaro Lobaton\STPLATFORM-7483-Nuevo código Tourico\Plan de Pruebas JMeter\20160420_Arbol de Resultados_B-Avail.csv</stringProp>
+          </ResultCollector>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="C -Avail" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;request type=&quot;ACCOMMODATIONS_AVAIL&quot; version=&quot;4.1&quot; cache=&quot;yes&quot; id=&quot;BenjiTestAvail&quot; accessPoint=&quot;10&quot; checkLogin=&quot;false&quot; &gt;&#xd;
+   	&lt;client code=&quot;EEMISO&quot; branch=&quot;4905&quot; groupCode=&quot;13687&quot; password=&quot;zipvhbm9rr&quot;/&gt;&#xd;
+	&lt;language code=&quot;SPA&quot;/&gt;&#xd;
+	&lt;searchCriteria&gt;&#xd;
+		&lt;criterion code=&quot;country&quot; type=&quot;0&quot; value=&quot;ESP&quot;/&gt;&#xd;
+		&lt;!-- London --&gt;&#xd;
+		&lt;criterion code=&quot;city&quot; type=&quot;0&quot; value=&quot;62267&quot;/&gt;&#xd;
+         &lt;criterion code=&quot;accommodationCode&quot; type=&quot;0&quot; value=&quot;T53117&quot; /&gt;&#xd;
+	&lt;/searchCriteria&gt;&#xd;
+	&lt;period start=&quot;20161115&quot; end=&quot;20161122&quot;/&gt;&#xd;
+	&lt;rooms&gt;&#xd;
+		&lt;room type=&quot;1&quot; adults=&quot;2&quot; children=&quot;0&quot;/&gt;&#xd;
+	&lt;/rooms&gt;&#xd;
+&lt;/request&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="Ver Árbol de Resultados" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>false</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <threadCounts>true</threadCounts>
+              </value>
+            </objProp>
+            <stringProp name="filename">C:\Users\Innova4j\Desktop\IMPORTANTES - Alvaro Lobaton\STPLATFORM-7483-Nuevo código Tourico\Plan de Pruebas JMeter\20160425_Arbol de resultados_C-Avail</stringProp>
+          </ResultCollector>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="C - Booking " enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;request type=&quot;ACCOMMODATION_BOOKING&quot; version=&quot;4.1&quot; accessPoint=&quot;1&quot; backOfficeUser=&quot;&quot; id=&quot;alobatonTest&quot; onlyMad=&quot;false&quot;&gt;&#xd;
+	&lt;empresa&gt;R&lt;/empresa&gt;&#xd;
+	&lt;client code=&quot;UKBEDS&quot; branch=&quot;4905&quot; groupCode=&quot;&quot; password=&quot;zipvhbm9rr&quot;/&gt;&#xd;
+	&lt;language code=&quot;ITA&quot;/&gt;&#xd;
+	&lt;compression type=&quot;gzip&quot;/&gt;&#xd;
+	&lt;accommodation code=&quot;T06564&quot; concept=&quot;D01&quot; board=&quot;BB&quot; oTicket=&quot;jYfLP3aN4ZA9RRiWWQ+Eg//FOHl3nuzgtwWBoJog8Aehwne6VdsxRPkZfws4NXHPwgJHxhNbrr5w&#xd;
+MTZKj5fZHa52C0qDdgLdNwj34PJiQFS8SH+vg/4Qmh9ZE/1xGGhtsYXOerGL3R6a1TnBtAmvuPIW&#xd;
+frLLX357LSN6Q0owT6nvLrAhozqjWG5KXuFORDcyjyBp7rCudsKeb9Ki9jyba+S5aPZ46bpBv90p&#xd;
+lk9jB7LOWtVXAcjmRW71nqkLKzuGERhMd+9ZWuHtEaLwW0Ke7ImHrpK13N5B&quot; offer=&quot;&quot; ticket=&quot;0060T06564BB00000000000D0100000000000000000000000000000000000000000029271eT[alobatonTest|29271|1216162|14815260|17|4|3,2(21)#1216162;14815260;190914;2;3;0x1|20160830|20160902|DBST----------|CD20160628215557|4]&quot;/&gt;&#xd;
+    &lt;period start=&quot;20160830&quot; end=&quot;20160902&quot;/&gt;&#xd;
+    &lt;rooms&gt;&#xd;
+        &lt;room type=&quot;1&quot; adults=&quot;2&quot; children=&quot;1&quot;&gt;&#xd;
+            &lt;child age=&quot;4&quot; /&gt;&#xd;
+            &lt;child age=&quot;4&quot; /&gt;&#xd;
+        &lt;/room&gt;&#xd;
+    &lt;/rooms&gt;&#xd;
+	&lt;extra_info&gt;&#xd;
+		&lt;forced_prelocator&gt;99999999&lt;/forced_prelocator&gt;&#xd;
+	&lt;/extra_info&gt;&#xd;
+&lt;/request&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="Ver Árbol de Resultados" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>false</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <threadCounts>true</threadCounts>
+              </value>
+            </objProp>
+            <stringProp name="filename">C:\Users\Innova4j\Desktop\IMPORTANTES - Alvaro Lobaton\STPLATFORM-7483-Nuevo código Tourico\Plan de Pruebas JMeter\20160420_Arbol de Resultados_C-Booking.csv</stringProp>
+          </ResultCollector>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Informe Agregado" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Reporte resumen" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename">/home/manager/development/wstourico_JMeter/tourico_performance_report_250_199_2.csv</stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="MonitorHealthVisualizer" testclass="ResultCollector" testname="Resultados del Monitor" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <hostname>true</hostname>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="[wstourico] extern" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Controlador Bucle" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">20</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1461700725000</longProp>
+        <longProp name="ThreadGroup.end_time">1461700725000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="SearchHotelsById" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="SoapSampler.URL_DATA">http://demo-hotelws.touricoholidays.com/HotelFlow.svc/bas</stringProp>
+          <stringProp name="HTTPSamper.xml_data">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;SOAP-ENV:Envelope xmlns:SOAP-ENV=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;
+   &lt;SOAP-ENV:Header&gt;
+      &lt;ns2:AuthenticationHeader xmlns:ns2=&quot;http://schemas.tourico.com/webservices/authentication&quot;&gt;
+         &lt;ns2:LoginName&gt;Serhs1&lt;/ns2:LoginName&gt;
+         &lt;ns2:Password&gt;111111&lt;/ns2:Password&gt;
+         &lt;ns2:Culture&gt;es_ES&lt;/ns2:Culture&gt;
+         &lt;ns2:version&gt;8.5&lt;/ns2:version&gt;
+      &lt;/ns2:AuthenticationHeader&gt;
+   &lt;/SOAP-ENV:Header&gt;
+   &lt;SOAP-ENV:Body&gt;
+      &lt;SearchHotelsById xmlns=&quot;http://tourico.com/webservices/hotelv3&quot; xmlns:ns5=&quot;http://schemas.tourico.com/webservices/hotelv3&quot;&gt;
+         &lt;request&gt;
+            &lt;ns5:HotelIdsInfo&gt;
+               &lt;ns5:HotelIdInfo id=&quot;1209017&quot; /&gt;
+            &lt;/ns5:HotelIdsInfo&gt;
+            &lt;ns5:CheckIn&gt;2016-11-15&lt;/ns5:CheckIn&gt;
+            &lt;ns5:CheckOut&gt;2016-11-22&lt;/ns5:CheckOut&gt;
+            &lt;ns5:RoomsInformation&gt;
+               &lt;ns5:RoomInfo&gt;
+                  &lt;ns5:AdultNum&gt;2&lt;/ns5:AdultNum&gt;
+                  &lt;ns5:ChildNum&gt;0&lt;/ns5:ChildNum&gt;
+                  &lt;ns5:ChildAges /&gt;
+               &lt;/ns5:RoomInfo&gt;
+            &lt;/ns5:RoomsInformation&gt;
+            &lt;ns5:MaxPrice&gt;0&lt;/ns5:MaxPrice&gt;
+            &lt;ns5:AvailableOnly&gt;true&lt;/ns5:AvailableOnly&gt;
+         &lt;/request&gt;
+      &lt;/SearchHotelsById&gt;
+   &lt;/SOAP-ENV:Body&gt;
+&lt;/SOAP-ENV:Envelope&gt;</stringProp>
+          <stringProp name="SoapSampler.xml_data_file"></stringProp>
+          <stringProp name="SoapSampler.SOAP_ACTION">http://tourico.com/webservices/hotelv3/IHotelFlow/SearchHotelsById</stringProp>
+          <stringProp name="SoapSampler.SEND_SOAP_ACTION">true</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+        </SoapSampler>
+        <hashTree>
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="Ver Árbol de Resultados" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>false</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <threadCounts>true</threadCounts>
+              </value>
+            </objProp>
+            <stringProp name="filename">C:\Users\Innova4j\Desktop\IMPORTANTES - Alvaro Lobaton\STPLATFORM-7483-Nuevo código Tourico\Plan de Pruebas JMeter\20160420_Arbol de Resultados_SOAPAvail.csv</stringProp>
+          </ResultCollector>
+          <hashTree/>
+        </hashTree>
+        <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="SearchHotelsByDestinationIds" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="SoapSampler.URL_DATA">http://demo-hotelws.touricoholidays.com/HotelFlow.svc/bas</stringProp>
+          <stringProp name="HTTPSamper.xml_data">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;SOAP-ENV:Envelope xmlns:SOAP-ENV=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;
+   &lt;SOAP-ENV:Header&gt;
+      &lt;ns2:AuthenticationHeader xmlns:ns2=&quot;http://schemas.tourico.com/webservices/authentication&quot;&gt;
+         &lt;ns2:LoginName&gt;Serhs1&lt;/ns2:LoginName&gt;
+         &lt;ns2:Password&gt;111111&lt;/ns2:Password&gt;
+         &lt;ns2:Culture&gt;es_ES&lt;/ns2:Culture&gt;
+         &lt;ns2:version&gt;8.5&lt;/ns2:version&gt;
+      &lt;/ns2:AuthenticationHeader&gt;
+   &lt;/SOAP-ENV:Header&gt;
+   &lt;SOAP-ENV:Body&gt;
+      &lt;SearchHotelsByDestinationIds xmlns=&quot;http://tourico.com/webservices/hotelv3&quot; xmlns:ns5=&quot;http://schemas.tourico.com/webservices/hotelv3&quot;&gt;
+         &lt;request&gt;
+            &lt;ns5:DestinationIdsInfo&gt;
+               &lt;ns5:DestinationIdInfo id=&quot;4762&quot; /&gt;
+            &lt;/ns5:DestinationIdsInfo&gt;
+            &lt;ns5:CheckIn&gt;2016-10-20&lt;/ns5:CheckIn&gt;
+            &lt;ns5:CheckOut&gt;2016-10-23&lt;/ns5:CheckOut&gt;
+            &lt;ns5:RoomsInformation&gt;
+               &lt;ns5:RoomInfo&gt;
+                  &lt;ns5:AdultNum&gt;2&lt;/ns5:AdultNum&gt;
+                  &lt;ns5:ChildNum&gt;0&lt;/ns5:ChildNum&gt;
+                  &lt;ns5:ChildAges /&gt;
+               &lt;/ns5:RoomInfo&gt;
+            &lt;/ns5:RoomsInformation&gt;
+            &lt;ns5:AvailableOnly&gt;true&lt;/ns5:AvailableOnly&gt;
+            &lt;ns5:PropertyType&gt;Hotel&lt;/ns5:PropertyType&gt;
+            &lt;ns5:ExactDestination&gt;true&lt;/ns5:ExactDestination&gt;
+         &lt;/request&gt;
+      &lt;/SearchHotelsByDestinationIds&gt;
+   &lt;/SOAP-ENV:Body&gt;
+&lt;/SOAP-ENV:Envelope&gt;</stringProp>
+          <stringProp name="SoapSampler.xml_data_file"></stringProp>
+          <stringProp name="SoapSampler.SOAP_ACTION">http://tourico.com/webservices/hotelv3/IHotelFlow/SearchHotelsByDestinationIds</stringProp>
+          <stringProp name="SoapSampler.SEND_SOAP_ACTION">true</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+        </SoapSampler>
+        <hashTree>
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="Ver Árbol de Resultados" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>false</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <threadCounts>true</threadCounts>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+        </hashTree>
+        <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="Petición Soap/XML-RPC" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="SoapSampler.URL_DATA">http://thfwsv3.touricoholidays.com/HotelFlow.svc/bas</stringProp>
+          <stringProp name="HTTPSamper.xml_data">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;S:Envelope xmlns:S=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;
+   &lt;S:Header&gt;
+      &lt;ns6:AuthenticationHeader xmlns:ns6=&quot;http://schemas.tourico.com/webservices/authentication&quot; xmlns:ns2=&quot;http://tourico.com/webservices/hotelv3&quot; xmlns:ns3=&quot;http://tempuri.org/TWS_HotelDetailsV3.xsd&quot; xmlns:ns4=&quot;http://schemas.tourico.com/webservices/hotelv3&quot; xmlns:ns5=&quot;http://schemas.tourico.com/webservices/faults&quot;&gt;
+         &lt;ns6:LoginName&gt;VLCb2b&lt;/ns6:LoginName&gt;
+         &lt;ns6:Password&gt;Tourico16!&lt;/ns6:Password&gt;
+         &lt;ns6:Culture&gt;es_ES&lt;/ns6:Culture&gt;
+         &lt;ns2:version&gt;8.5&lt;/ns2:version&gt;
+      &lt;/ns6:AuthenticationHeader&gt;
+   &lt;/S:Header&gt;
+   &lt;S:Body&gt;
+      &lt;ns2:CheckAvailabilityAndPrices xmlns:ns2=&quot;http://tourico.com/webservices/hotelv3&quot; xmlns:ns3=&quot;http://tempuri.org/TWS_HotelDetailsV3.xsd&quot; xmlns:ns4=&quot;http://schemas.tourico.com/webservices/hotelv3&quot; xmlns:ns5=&quot;http://schemas.tourico.com/webservices/faults&quot; xmlns:ns6=&quot;http://schemas.tourico.com/webservices/authentication&quot;&gt;
+         &lt;ns2:request&gt;
+            &lt;ns4:HotelIdsInfo&gt;
+               &lt;ns4:HotelIdInfo id=&quot;1040365&quot; /&gt;
+            &lt;/ns4:HotelIdsInfo&gt;
+            &lt;ns4:CheckIn&gt;2016-07-26&lt;/ns4:CheckIn&gt;
+            &lt;ns4:CheckOut&gt;2016-07-28&lt;/ns4:CheckOut&gt;
+            &lt;ns4:RoomsInformation&gt;
+               &lt;ns4:RoomInfo&gt;
+                  &lt;ns4:AdultNum&gt;2&lt;/ns4:AdultNum&gt;
+                  &lt;ns4:ChildNum&gt;0&lt;/ns4:ChildNum&gt;
+                  &lt;ns4:ChildAges /&gt;
+               &lt;/ns4:RoomInfo&gt;
+            &lt;/ns4:RoomsInformation&gt;
+            &lt;ns4:MaxPrice&gt;192.799999999999994326760344165450078435242176055908203125&lt;/ns4:MaxPrice&gt;
+            &lt;ns4:AvailableOnly&gt;true&lt;/ns4:AvailableOnly&gt;
+         &lt;/ns2:request&gt;
+      &lt;/ns2:CheckAvailabilityAndPrices&gt;
+   &lt;/S:Body&gt;
+&lt;/S:Envelope&gt;</stringProp>
+          <stringProp name="SoapSampler.xml_data_file"></stringProp>
+          <stringProp name="SoapSampler.SOAP_ACTION">http://tourico.com/webservices/hotelv3/IHotelFlow/CheckAvailabilityAndPrices</stringProp>
+          <stringProp name="SoapSampler.SEND_SOAP_ACTION">true</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+        </SoapSampler>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="Ver Árbol de Resultados" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Informe Agregado" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename">C:\Users\Innova4j\Desktop\IMPORTANTES - Alvaro Lobaton\STPLATFORM-7483-Nuevo código Tourico\Plan de Pruebas JMeter\20160420_Arbol de Resultados_SOAInforme.csv</stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
